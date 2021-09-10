@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* 
 @SteninMaxim
@@ -653,11 +654,228 @@ void hangingProblemElse2()
 }
 
 /* 3.33 */
+void readingSizeSideRquare()
+{
+	int num, i = 0, j = 0;
 
+	scanf("%d", &num);
+
+	if (num <= 20) {
+		while (i < num) {
+
+			while (j < num) {
+				printf("*");
+				j++;
+			}
+
+			j = 0;
+			i++;
+			printf("\n");
+		}
+	} else {
+		printf("Введите число меньше 20\n");
+	}
+}
+
+/* 3.34 */
+void readingSizeSideRquare2()
+{
+	int num, i = 0, j = 0;
+
+	scanf("%d", &num);
+
+	if (num <= 20) {
+		while (i < num) {
+
+			while (j < num) {
+				if (i == 0 || i == num - 1)
+					printf("*");
+				else if (j == 0 || j == num - 1)
+					printf("*");
+				else 
+					printf(" ");
+				j++;
+			}
+
+			j = 0;
+			i++;
+			printf("\n");
+		}
+	} else {
+		printf("Введите число меньше 20\n");
+	}
+}
+
+/* 3.35 */
+void palindrome()
+{
+	int num, i = 0;
+
+	printf("Введите пятизначное число. Для проверки палиндрома числа.\n");
+	scanf("%d", &num);
+
+	if (
+		num / 10000 == num % 10 
+		&& (num / 1000) % 10 == (num / 10) % 10 
+		&& num < 100000
+		&& num > 9999 
+	) 
+		printf("Yes\n");
+	else 
+		printf("No\n");
+}
+
+/* 3.36 */
+/* Выдает не корректное число после 10 степени */
+void conversionFromBinaryToDecimal() 
+{
+	int binary, count = 0, decimal = 0, result, r;
+	scanf("%d", &binary);
+
+	while (binary > 0) {
+		decimal += pow(2, count) * (binary % 10);
+		binary = binary / 10;
+		count++;
+	}
+
+	printf("Перевод из двоичной в десятичную систему счисления: %d\n", decimal);
+}
+
+
+/* 3.37 */
+void computerSpeed()
+{
+	int i = 0;
+
+	while (i <= 300000000) {
+		if (i % 100000000 == 0) {
+			printf("%d\n", i);
+		}
+		i++;
+	}
+}
+
+/* 3.38 */
+void outputHundredStar()
+{
+	int i = 1;
+
+	while (i <= 100) {
+		printf("*");
+
+		if (i % 10 == 0) {
+			printf("\n");
+		}
+
+		i++;
+	}
+}
+
+/* 3.39 */
+void readInteger() 
+{
+	int number, countNumber = 0;
+
+	scanf("%d", &number);
+
+	while (number > 0) {
+		number = number / 10;
+		++countNumber;
+	}
+
+	printf("%d\n", countNumber);
+}
+
+/* 3.40 */
+void checkerboardBoard() 
+{
+	int i = 0;
+
+	while (i < 64) {
+		if (i % 8 == 0 && i != 0) 
+			printf("\n");
+
+		if ((i + 8) % 16 == 0) 
+			printf(" ");
+		
+
+		printf("* ");
+
+		i++;
+	}
+
+	printf("\n");
+}
+
+/* 3.41 */
+void outputNumberMultipleTWo() 
+{
+	int i = 2;
+
+	while (i < 100000) {
+		printf("%d\n", i);
+		i *= 2;
+	}
+}
+
+/* 3.42 */
+void readingRadius() 
+{
+	float pi = 3.41459;
+	float radius;
+	int x = 5, y = 7, i;
+
+	scanf("%f", &radius);
+
+	printf("Диаметр круга: %f\n", 2 * radius);
+	printf("Периметр: %f\n", 2 * pi * radius);
+	printf("Площадь: %f\n", pi * pow(radius, 2));
+}
+
+/* 3.46 */
+int encryptionData() 
+{
+	int number, a, b, c, d, result;
+
+	printf("Введите четырех значное число: \n");
+	scanf("%d", &number);
+
+	if (number > 9999 && number < 1000) {
+		printf("Введите четырех значное число!");
+
+		return 0;
+	}
+
+	a = (number / 1000) % 10;
+	b = (number / 100) % 10;
+	c = (number / 10) % 10;
+	d = number % 10;
+
+	a = (a + a + 7) % 10;
+	b = (b + b + 7) % 10;
+	c = (c + c + 7) % 10;
+	d = (d + d + 7) % 10;
+
+	result = c * 1000 + d*100 + a * 10 + b;
+
+	printf("Зашифрованное число: %d%d%d%d\n", c, d, a, b);
+	printf("%d\n", result);
+}
+
+int recursive(int x) 
+{
+
+	if (x == 0) {
+		return 1;
+	}
+
+	return x * recursive(x-1);
+
+}
 
 int main()
 { 
-	hangingProblemElse2();
+	printf("%d\n", recursive(3));
 }
 
 
