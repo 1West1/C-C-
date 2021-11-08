@@ -873,9 +873,180 @@ int recursive(int x)
 
 }
 
+int countingLetterGrades()
+{
+	int grade;
+	int aCount = 0, bCount = 0, cCount = 0, dCount = 0, fCount = 0;
+
+	printf("Enter the letter grades. \n");
+	printf("Enter the EOF character to end input. \n");
+
+	while ( (grade = getchar()) != EOF) { // ctrl+d
+		switch (grade) {
+			case 'A': case 'a':
+				++aCount;
+				break;
+			case 'B': case 'b':
+				++bCount;
+				break;
+			case 'C': case 'c':
+				++cCount;
+				break;
+			case 'D': case 'd':
+				++dCount;
+				break;
+			case 'F': case 'f':
+				++fCount;
+				break;
+			case '\n': case ' ':
+				break;
+			default:
+				printf("Incorrect letter grade entered ");
+				printf("Enter a new grade\n");
+				break;
+		}
+
+	}
+
+	printf("\nTotals for each letter grade are: \n");
+	printf("A: %d\n", aCount);
+	printf("B: %d\n", bCount);
+	printf("C: %d\n", cCount);
+	printf("D: %d\n", dCount);
+	printf("F: %d\n", fCount);
+
+	return 0;
+}
+
+/* 4.3 */
+void sequenceOfStatements()
+{
+	int sum = 0;
+	int x;
+
+	/* a) */
+	for (int count = 1; count <= 99; count += 2) {
+		sum += count;
+	}
+
+	printf("%d\n", sum);
+
+	/* b) */
+	printf("%-15.1f\n", 333.546372);
+	printf("%-15.2f\n", 333.546372);
+	printf("%-15.3f\n", 333.546372);
+	printf("%-15.4f\n", 333.546372);
+	printf("%-15.5f\n", 333.546372);
+
+	/* c) */
+	printf("%-10.2f\n", pow(2.5, 3));
+
+	/* d) */
+	x = 1;
+
+	while (x <= 20) {
+
+		if (x % 5 == 0) {
+			printf("%d\n", x++);
+		} else {
+			printf("%d\t", x++);
+		}
+
+	}
+
+	/* e */
+	for (x = 1; x <= 20; x++) {
+		printf("%d", x);
+
+		if (x % 5 == 0) {
+			printf("\n");
+		} else {
+			printf("\t");
+		}
+	}
+
+}
+
+/* 4.9 */
+void sumSequenceOfInteger()
+{
+	int x, y;
+	int total = 0;
+
+	scanf("%d", &x);
+
+	for (int i = 1; i <= x; i++) {
+		scanf("%d", &y);
+
+		total += y;
+	}
+
+	printf("%d\n", total);
+}
+
+/* 4.10 */
+void meanValueOfInteger()
+{
+	int x, mean, total = 0;
+
+	for (int i = 1; x != 9999; i++) {
+		scanf("%d", &x);
+
+		if (x == 9999) {
+			mean = total / --i;
+			break;
+		}
+
+		total += x;
+	}
+
+	printf("%d\n", mean);
+}
+
+/* 4.11 */
+void searchMinValue()
+{
+	int x, y, min;
+
+	scanf("%d", &x);
+
+	for (int i = 1; i <= x; i++) {
+		scanf("%d", &y);
+
+		if (i == 1 || y < min) {
+			min = y;
+		}
+	}
+
+	printf("Min: %d\n", min);
+}
+
+/* 4.12 & 4.13 */
+
+void sumEvenNumber()
+{
+	int i = 2, sumEvenNumber = 0, sumNotEvenNumber = 0;
+
+	while (i <= 20) {
+		if (i % 2 == 0) {
+			sumEvenNumber += i;
+		} else {
+			sumNotEvenNumber += i;
+		}
+
+		i++;
+	}
+
+	printf("%d\n", sumEvenNumber);
+	printf("%d\n", sumNotEvenNumber);
+}
+
+
 int main()
 { 
-	printf("%d\n", recursive(3));
+	sumEvenNumber();
+
+	return 0;
 }
 
 
