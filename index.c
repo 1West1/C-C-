@@ -1041,10 +1041,290 @@ void sumEvenNumber()
 	printf("%d\n", sumNotEvenNumber);
 }
 
+/* 4.14 */
+void factorial()
+{
+	int num = 0, sum = 0;
+
+	scanf("%d", &num);
+
+	for (int i = 1; i <= num; i++) {
+		sum += i;
+	}
+
+	printf("%d\n", sum);
+}
+
+/* 4.16 */
+void generationOfDrawings()
+{
+	/* a */
+	for (int i = 0; i <= 10; i++) {
+		for (int j = 0; j <= i; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+
+	printf("\n");
+
+	/* b */
+	for (int i = 10; i >= 0; i--) {
+		for (int j = 0; j <= i; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+
+	printf("\n");
+	
+	/* c */
+	for (int i = 10; i >= 0; i--) {
+		for (int k = 0; k < (10 - i); k++) {
+			printf(" ");
+		}
+
+		for (int j = 0; j <= i; j++) {
+			printf("*");
+		}
+
+		printf("\n");
+	}
+
+	printf("\n");
+
+	/* d */
+	for (int i = 0; i <= 10; i++) {
+		for (int k = 10; k > i; k--) {
+			printf(" ");
+		}
+
+		for (int j = 0; j <= i; j++) {
+			printf("*");
+		}
+
+		printf("\n");
+	}
+
+
+	printf("\n");
+}
+
+/* 4.17 */
+void maximumLoanAmount() 
+{
+	int customerAccountNumber;
+	int maximumLoanAmount;
+	int currentBalance;
+	int newLoanAmount;
+
+	for (int i = 1; i <= 3; i++) {
+		printf("\nCustomer account number: %d\n", i);
+
+		printf("Maximum loan amount: ");
+		scanf("%d", &maximumLoanAmount);
+
+		printf("Current balance: ");
+		scanf("%d", &currentBalance);
+
+		newLoanAmount = maximumLoanAmount / 2; 
+		printf("%d\n", newLoanAmount);	
+
+		if (newLoanAmount < currentBalance) {
+			printf("Client: %d\n", i);
+		}	
+	}
+}
+
+/* 4.18 */
+void barGraph() 
+{
+	int x;
+
+	for (int i = 0; i < 5; i++) {
+		scanf("%d", &x);
+
+		if (x <= 30) {
+			for (int j = 0; j < x; j++) {
+				printf("*");
+			}
+		} else {
+			printf("Value should not be more than 30.\n");
+			break;
+		}
+
+		printf("\n");
+	}
+}
+
+/* 4.19 */
+void sequencePairsNumbers()
+{
+	int x, count, i = 1;
+	float y, sum;
+
+	while (i <= 7) {
+		printf("\nDay %d\n", i);
+
+		printf("Product number, enter from 1 to 5:\n");
+		scanf("%d", &x);
+
+		printf("Amount sold in one day:\n");
+		scanf("%d", &count);
+
+		switch (x) {
+			case 1:
+				y = 2.98;
+				break;
+			case 2:
+				y = 4.50;
+				break;
+			case 3: 
+				y = 9.98;
+				break;
+			case 4: 
+				y = 4.49;
+				break;
+			case 5: 
+				y = 6.87;
+				break;
+			default:
+				printf("Not value\n");
+				break;
+		}
+
+		sum += y;
+		i++;
+	}
+
+
+	printf("Total amount for the week: $%.2f\n", sum);
+}
+
+/* 4.24 */
+void check() 
+{
+	int i = 1, j = 2, k = 3, m = 2;
+
+	printf("%d\n", i == 1);
+	printf("%d\n", j == 3);
+	printf("%d\n", i >= 1 && j < 4);
+	printf("%d\n", m <= 99 && k < m);
+	printf("%d\n", j >= i || k == m);
+	printf("%d\n", k + m < j || 3 - j >= k);
+	printf("%d\n", !m);
+	printf("%d\n", !(j - m));
+	printf("%d\n", !(k > m));
+	printf("%d\n", !(j > k));
+}
+
+/* 4.28 */
+void calculatingWeeklySalary()
+{
+	int paymentCode, hours, numberSales;
+	float salary, rate, result = 0;
+
+	printf("Enter code 1-4\n");
+	scanf("%d", &paymentCode);
+
+	switch (paymentCode) {
+		case 1:
+			scanf("%f", &salary);
+			printf("%.2f$\n", salary);
+			break;
+		case 2:
+			printf("%s\n", "Enter the number of hours.");
+			scanf("%d", &hours);
+
+			printf("%s\n", "Rate per hour.");
+			scanf("%f", &rate);
+
+			if (hours > 40) {
+				result += rate * 40;
+				result += (hours - 40) * 1.5 * rate; 
+			} else {
+				result += rate * hours;
+			}
+
+			printf("%.2f$\n", result);
+			break;
+		case 3:
+			printf("%s\n", "Number of sales?");
+			scanf("%d", &numberSales);
+
+			printf("%.2f$\n", 250 + numberSales * 5.7);
+
+			break;
+		case 4:
+			printf("%s\n", "Enter the number of hours.");
+			scanf("%d", &hours);
+
+			printf("%s\n", "Rate per hour.");
+			scanf("%f", &rate);
+
+			printf("%.2f$\n", hours * rate);
+			break;
+		default:
+			printf("%s\n", "There is no given code.");
+			break;
+	}
+}
+
+/* 4.29 */
+void morgansLaw()
+{
+	int x = 10, y = 10, a = 2, b = 2, g = 5, Y = 3, i = 5, j = 3;
+
+	printf("%d\n", !(x < 5) && !(y >= 7) ? 1 : 0);
+	printf("%d\n", !(x < 5 || y >= 7) ? 1 : 0);
+
+	printf("%d\n", !(a == b) || !(g != 5) ? 1 : 0);
+	printf("%d\n", !(a == b && g != 5) ? 1 : 0);
+
+	printf("%d\n", !(x <= 8) || (Y > 4) ? 1 : 0);
+	printf("%d\n", !((x <= 8) && (Y > 4)) ? 1 : 0);
+
+	printf("%d\n", !(i > 4) || (j <= 6) ? 1 : 0);
+	//printf("%d\n", !((i > 4) && (j <= 6)) ? 1 : 0);
+}
+
+/* 4.31 */
+void rhombus() 
+{
+	for (int i = 1; i <= 9; i++) {
+		for (int j = 1; j <= 9; j++) {
+			if ((i == 1 || i == 9) && j == 5) {
+				printf("*");
+			} else if (
+				(i == 2 || i == 8) && 
+				(j == 4 || j == 5 || j == 6)
+			) {
+				printf("*");
+			} else if (
+				(i == 3 || i == 7) && 
+				(j == 3 ||j == 4 || j == 5 || j == 6 || j == 7)
+			) {
+				printf("*");
+			} else if (
+				(i == 4 || i == 6) && 
+				!(j == 1 || j == 9)
+			) {
+				printf("*");
+			} else if (i == 5) {
+				printf("*");
+			} else {
+				printf(" ");
+			}
+		}
+		printf("\n");
+	}
+}
+
+
 
 int main()
 { 
-	sumEvenNumber();
+	rhombus();
 
 	return 0;
 }
