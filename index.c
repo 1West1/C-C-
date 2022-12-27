@@ -1320,11 +1320,58 @@ void rhombus()
 	}
 }
 
+int rhombus2()
+{
+	int x;
 
+	printf("%s\n", "Enter a number from 1 to 19");
+	scanf("%d", &x);
+
+	if (x % 2 == 0 || x > 20 || x < 1) {
+		return 1;
+	} 
+
+	for (int i = 1; i <= x; i++) {
+		if (i % 2 != 0) {
+			if (i == 1 || i == 17) {
+				for (int j = 0; j < 4; j++) {
+					printf(" ");
+				}
+			} else if (i == 3 || i == 15) {
+				for (int j = 0; j < 3; j++) {
+					printf(" ");
+				}
+			} else if (i == 5 || i == 13) {
+				for (int j = 0; j < 2; j++) {
+					printf(" ");
+				}
+			} else if (i == 7 || i == 11) {
+				for (int j = 0; j < 1; j++) {
+					printf(" ");
+				}
+			} 
+
+			if (i <= 9) {
+				for (int j = 1; j <= i; j++) {
+					printf("*");
+				}
+			} else {
+				for (int j = i; j <= 17; j++) {
+					printf("*");
+				}
+			}
+
+		}
+		printf("\n");
+		//printf("\n");
+	}
+} 
 
 int main()
 { 
-	rhombus();
+	rhombus2();
+
+	printf("%20f\n\n", sqrt(900.0));
 
 	return 0;
 }
